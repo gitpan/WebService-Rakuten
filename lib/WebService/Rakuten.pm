@@ -2,7 +2,7 @@ package WebService::Rakuten;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Carp;
 use URI;
@@ -10,7 +10,7 @@ use LWP::UserAgent;
 use Readonly;
 use WebService::Rakuten::Parser;
 
-Readonly my $API_VERSION => '2007-01-17';
+Readonly my $API_VERSION => '2006-12-26';
 Readonly my $ENDPOINT    => 'http://api.rakuten.co.jp/rws/1.1/rest';
 
 =head1 NAME
@@ -163,7 +163,11 @@ sub genre_search {
 
 =head1 SEE ALSO
 
+=over
+
 =item * http://webservice.rakuten.co.jp/
+
+=back
 
 =head1 AUTHOR
 
