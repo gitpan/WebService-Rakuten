@@ -1,27 +1,37 @@
-This is Perl module WebService::Rakuten.
+WebService-Rakuten version 0.02
+===============================
+
+This fills an empty niche for interfacing with the Rakuten
+webservice detailed here.
+
+http://webservice.rakuten.co.jp/
+
 
 INSTALLATION
 
-WebService::Rakuten installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+To install this module type the following:
 
-    % cpan WebService::Rakuten
+   perl Makefile.PL
+   make
+   make test
+   make install
 
-Download it, unpack it, then build it as per the usual:
+DEPENDENCIES
 
-    % perl Makefile.PL
-    % make && make test
+This module requires these other modules and libraries:
 
-Then install it:
+Carp
+JSON
+LWP::UserAgent
+Unicode::Japanese
 
-    % make install
+COPYRIGHT AND LICENCE
 
-DOCUMENTATION
+Put the correct copyright and licence information here.
 
-WebService::Rakuten documentation is available as in POD. So you can do:
+Copyright (C) 2009 by Dylan Doxey
 
-    % perldoc WebService::Rakuten
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.8 or,
+at your option, any later version of Perl 5 you may have available.
 
-to read the documentation online with your favorite pager.
-
-Hideaki Tanaka
