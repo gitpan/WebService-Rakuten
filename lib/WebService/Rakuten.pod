@@ -10,26 +10,38 @@ WebService::Rakuten - Object interface to Rakuten webservice
 
   use WebService::Rakuten;
 
-  my $r = WebService::Rakuten->new(
+  my $rws = WebService::Rakuten->new(
       output_type  => 'perl',
       developer_id => '0123456789abcdef',
   );
 
-  my $keyword = 'Hello Kitty';
-  my $page    = 1;
-
-  my $result_rh = $r->itemsearch($keyword,$page);
+  my $result_rh = $rws->itemsearch(
+      keyword => 'Sony Vaio',
+      page    => 1,
+  );
 
 =head1 DESCRIPTION
 
-This fills an empty niche for interfacing with the Rakuten
-webservice detailed here.
+Use this module to conveniently interface with the Rakuten webservices.
+
+=head3 Documentation
 
   http://webservice.rakuten.co.jp/
 
 =head1 METHODS
 
 =head2 simplehotelsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->simplehotelsearch(
+     largeClassCode  => 'japan',
+     middleClassCode => 'akita',
+     smallClassCode  => 'tazawa',
+ );
+ 
 
 =head3 Parameters
 
@@ -40,8 +52,6 @@ webservice detailed here.
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -151,11 +161,22 @@ webservice detailed here.
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/simplehotelsearch/
+http://webservice.rakuten.co.jp/simplehotelsearch/
 
 =head2 booksgamesearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksgamesearch(
+     title    => 'バイオハザード',
+     hardware => 'Wii',
+     sort     => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -283,11 +304,18 @@ http://affiliate.rakuten.co.jp/simplehotelsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksgamesearch/
+http://webservice.rakuten.co.jp/booksgamesearch/
 
 =head2 hoteldetailsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->hoteldetailsearch( hotelNo => 123456, );
+ 
 
 =head3 Parameters
 
@@ -298,8 +326,6 @@ http://affiliate.rakuten.co.jp/booksgamesearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -335,9 +361,9 @@ http://affiliate.rakuten.co.jp/booksgamesearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/hoteldetailsearch/
+http://webservice.rakuten.co.jp/hoteldetailsearch/
 
 =head2 gethotelchainlist
 
@@ -351,19 +377,28 @@ http://affiliate.rakuten.co.jp/hoteldetailsearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =back
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/gethotelchainlist/
+http://webservice.rakuten.co.jp/gethotelchainlist/
 
 =head2 bookssoftwaresearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->bookssoftwaresearch(
+     title => '会計',
+     os    => 'Mac',
+     sort  => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -491,11 +526,21 @@ http://affiliate.rakuten.co.jp/gethotelchainlist/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/bookssoftwaresearch/
+http://webservice.rakuten.co.jp/bookssoftwaresearch/
 
 =head2 bookscdsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->bookscdsearch(
+     artistName => 'サザンオールスターズ',
+     sort       => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -615,11 +660,25 @@ http://affiliate.rakuten.co.jp/bookssoftwaresearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/bookscdsearch/
+http://webservice.rakuten.co.jp/bookscdsearch/
 
 =head2 vacanthotelsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->vacanthotelsearch(
+     largeClassCode  => 'japan',
+     middleClassCode => 'akita',
+     smallClassCode  => 'tazawa',
+     checkinDate     => '2009-07-01',
+     checkoutDate    => '2009-07-02',
+     adultNum        => 2,
+ );
+ 
 
 =head3 Parameters
 
@@ -630,8 +689,6 @@ http://affiliate.rakuten.co.jp/bookscdsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -777,8 +834,6 @@ http://affiliate.rakuten.co.jp/bookscdsearch/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item minCharge
@@ -786,8 +841,6 @@ http://affiliate.rakuten.co.jp/bookscdsearch/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -849,11 +902,22 @@ http://affiliate.rakuten.co.jp/bookscdsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/vacanthotelsearch/
+http://webservice.rakuten.co.jp/vacanthotelsearch/
 
 =head2 booksmagazinesearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksmagazinesearch(
+     title        => '週間 経済',
+     booksGenreId => 007604001,
+     sort         => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -965,11 +1029,18 @@ http://affiliate.rakuten.co.jp/vacanthotelsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksmagazinesearch/
+http://webservice.rakuten.co.jp/booksmagazinesearch/
 
 =head2 itemcodesearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->itemcodesearch( itemCode => 'aaa:1234567', );
+ 
 
 =head3 Parameters
 
@@ -987,11 +1058,22 @@ http://affiliate.rakuten.co.jp/booksmagazinesearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/itemcodesearch/
+http://webservice.rakuten.co.jp/itemcodesearch/
 
 =head2 bookstotalsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->bookstotalsearch(
+     keyword   => 'ガンダム',
+     NGKeyword => '予約',
+     sort      => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -1109,19 +1191,28 @@ http://affiliate.rakuten.co.jp/itemcodesearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =back
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/bookstotalsearch/
+http://webservice.rakuten.co.jp/bookstotalsearch/
 
 =head2 booksforeignbooksearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksforeignbooksearch(
+     title        => 'HarryPotter',
+     booksGenreId => 005407,
+     sort         => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -1241,11 +1332,18 @@ http://affiliate.rakuten.co.jp/bookstotalsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksforeignbooksearch/
+http://webservice.rakuten.co.jp/booksforeignbooksearch/
 
 =head2 genresearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->genresearch( genreId => 0, );
+ 
 
 =head3 Parameters
 
@@ -1263,11 +1361,21 @@ http://affiliate.rakuten.co.jp/booksforeignbooksearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/genresearch/
+http://webservice.rakuten.co.jp/genresearch/
 
 =head2 auctionitemsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->auctionitemsearch(
+     keyword => '福袋',
+     sort    => '+bidCount',
+ );
+ 
 
 =head3 Parameters
 
@@ -1323,8 +1431,6 @@ http://affiliate.rakuten.co.jp/genresearch/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item maxPrice
@@ -1332,8 +1438,6 @@ http://affiliate.rakuten.co.jp/genresearch/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -1423,19 +1527,27 @@ http://affiliate.rakuten.co.jp/genresearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =back
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/auctionitemsearch/
+http://webservice.rakuten.co.jp/auctionitemsearch/
 
 =head2 dynamicad
+
+=head3 Example
+
+
+
+ my $results_rh =
+   $rws->dynamicad( url =>
+ 'http%3a%2f%2fplaza%2erakuten%2eco%2ejp%2fisblog%2fdiary%2f200705230001%2f',
+   );
+ 
 
 =head3 Parameters
 
@@ -1471,12 +1583,23 @@ http://affiliate.rakuten.co.jp/auctionitemsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/dynamicad/
+http://webservice.rakuten.co.jp/dynamicad/
 
 =head2 cdsearch
 
+=head3 Example
+
+
+
+ my $results_rh = $rws->cdsearch(
+     keyword => 'SMAP',
+     genreId => 200533,
+     sort    => '+itemPrice',
+ );
+ 
+
 =head3 Parameters
 
 =over
@@ -1486,8 +1609,6 @@ http://affiliate.rakuten.co.jp/dynamicad/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -1545,8 +1666,6 @@ http://affiliate.rakuten.co.jp/dynamicad/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item maxPrice
@@ -1554,8 +1673,6 @@ http://affiliate.rakuten.co.jp/dynamicad/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -1615,8 +1732,6 @@ http://affiliate.rakuten.co.jp/dynamicad/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =item genreInformationFlag
@@ -1633,12 +1748,23 @@ http://affiliate.rakuten.co.jp/dynamicad/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/cdsearch/
+http://webservice.rakuten.co.jp/cdsearch/
 
 =head2 booksearch
 
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksearch(
+     keyword => 'ブログ',
+     genreId => 200446,
+     sort    => '+itemPrice',
+ );
+ 
+
 =head3 Parameters
 
 =over
@@ -1648,8 +1774,6 @@ http://affiliate.rakuten.co.jp/cdsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -1707,8 +1831,6 @@ http://affiliate.rakuten.co.jp/cdsearch/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item maxPrice
@@ -1716,8 +1838,6 @@ http://affiliate.rakuten.co.jp/cdsearch/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -1777,8 +1897,6 @@ http://affiliate.rakuten.co.jp/cdsearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =item genreInformationFlag
@@ -1795,9 +1913,9 @@ http://affiliate.rakuten.co.jp/cdsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksearch/
+http://webservice.rakuten.co.jp/booksearch/
 
 =head2 getareaclass
 
@@ -1811,19 +1929,24 @@ http://affiliate.rakuten.co.jp/booksearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =back
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/getareaclass/
+http://webservice.rakuten.co.jp/getareaclass/
 
 =head2 hotelranking
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->hotelranking( genre => 'all', );
+ 
 
 =head3 Parameters
 
@@ -1834,8 +1957,6 @@ http://affiliate.rakuten.co.jp/getareaclass/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -1863,11 +1984,21 @@ http://affiliate.rakuten.co.jp/getareaclass/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/hotelranking/
+http://webservice.rakuten.co.jp/hotelranking/
 
 =head2 catalogsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->catalogsearch(
+     keyword => '%e6%b6%b2%e6�%b6%e3��%e3�%ac%e3��',
+     sort    => '-reviewCount',
+ );
+ 
 
 =head3 Parameters
 
@@ -1878,8 +2009,6 @@ http://affiliate.rakuten.co.jp/hotelranking/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -1977,8 +2106,6 @@ http://affiliate.rakuten.co.jp/hotelranking/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =item genreInformationFlag
@@ -1995,11 +2122,21 @@ http://affiliate.rakuten.co.jp/hotelranking/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/catalogsearch/
+http://webservice.rakuten.co.jp/catalogsearch/
 
 =head2 booksdvdsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksdvdsearch(
+     title => 'ガンダム',
+     sort  => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -2119,11 +2256,18 @@ http://affiliate.rakuten.co.jp/catalogsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksdvdsearch/
+http://webservice.rakuten.co.jp/booksdvdsearch/
 
 =head2 keywordhotelsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->keywordhotelsearch( keyword => '伊豆', );
+ 
 
 =head3 Parameters
 
@@ -2134,8 +2278,6 @@ http://affiliate.rakuten.co.jp/booksdvdsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -2199,9 +2341,9 @@ http://affiliate.rakuten.co.jp/booksdvdsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/keywordhotelsearch/
+http://webservice.rakuten.co.jp/keywordhotelsearch/
 
 =head2 itemranking
 
@@ -2214,8 +2356,6 @@ http://affiliate.rakuten.co.jp/keywordhotelsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -2247,11 +2387,18 @@ http://affiliate.rakuten.co.jp/keywordhotelsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/itemranking/
+http://webservice.rakuten.co.jp/itemranking/
 
 =head2 auctionitemcodesearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->auctionitemcodesearch( itemCode => 'i:aaa:1234567', );
+ 
 
 =head3 Parameters
 
@@ -2287,11 +2434,22 @@ http://affiliate.rakuten.co.jp/itemranking/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/auctionitemcodesearch/
+http://webservice.rakuten.co.jp/auctionitemcodesearch/
 
 =head2 dvdsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->dvdsearch(
+     keyword => 'SMAP',
+     genreId => 300337,
+     sort    => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -2302,8 +2460,6 @@ http://affiliate.rakuten.co.jp/auctionitemcodesearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -2361,8 +2517,6 @@ http://affiliate.rakuten.co.jp/auctionitemcodesearch/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item maxPrice
@@ -2370,8 +2524,6 @@ http://affiliate.rakuten.co.jp/auctionitemcodesearch/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -2431,8 +2583,6 @@ http://affiliate.rakuten.co.jp/auctionitemcodesearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =item genreInformationFlag
@@ -2449,11 +2599,21 @@ http://affiliate.rakuten.co.jp/auctionitemcodesearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/dvdsearch/
+http://webservice.rakuten.co.jp/dvdsearch/
 
 =head2 itemsearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->itemsearch(
+     keyword => '福袋',
+     sort    => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -2464,8 +2624,6 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -2482,8 +2640,6 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 =over
 
 =item type: String
-
-=item default: '指定無し'
 
 =back
 
@@ -2541,8 +2697,6 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 
 =item type: long
 
-=item default: '指定無し'
-
 =back
 
 =item maxPrice
@@ -2550,8 +2704,6 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 =over
 
 =item type: long
-
-=item default: '指定無し'
 
 =back
 
@@ -2611,8 +2763,6 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 
 =item type: String
 
-=item default: '指定無し'
-
 =back
 
 =item genreInformationFlag
@@ -2639,11 +2789,22 @@ http://affiliate.rakuten.co.jp/dvdsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/itemsearch/
+http://webservice.rakuten.co.jp/itemsearch/
 
 =head2 booksbooksearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksbooksearch(
+     title        => '太陽',
+     booksGenreId => 001004008,
+     sort         => '+itemPrice',
+ );
+ 
 
 =head3 Parameters
 
@@ -2773,11 +2934,18 @@ http://affiliate.rakuten.co.jp/itemsearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksbooksearch/
+http://webservice.rakuten.co.jp/booksbooksearch/
 
 =head2 booksgenresearch
+
+=head3 Example
+
+
+
+ my $results_rh = $rws->booksgenresearch( booksGenreId => 000, );
+ 
 
 =head3 Parameters
 
@@ -2795,10 +2963,30 @@ http://affiliate.rakuten.co.jp/booksbooksearch/
 
 
 
-=head3 Full Documentation
+=head3 Documentation
 
-http://affiliate.rakuten.co.jp/booksgenresearch/
+http://webservice.rakuten.co.jp/booksgenresearch/
 
+
+=head1 LIMITATIONS
+
+=over
+
+=item Namespace
+
+The namespace was registered by someone else, thus the "UNAUTHORIZED RELEASE" on the CPAN page.
+
+=item Auto-generated code
+
+This module and its POD were generated by a program which crawls the online documentation and outputs a Perl interpretation. 
+I may never personally test every function. Please report any bugs.
+
+=item Method documentation links
+
+For reasons beyond this author's control, Rakuten doesn't want you to follow links from other websites to their API pages.
+They enforce this by redirecting you to the main API page whenever you follow any of the above links. Go figure.
+
+=back
 
 =head1 AUTHOR
 

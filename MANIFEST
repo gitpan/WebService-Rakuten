@@ -4,3 +4,4 @@ MANIFEST
 README
 t/WebService-Rakuten.t
 lib/WebService/Rakuten.pm
+lib/WebService/Rakuten.pod
