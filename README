@@ -1,4 +1,4 @@
-WebService-Rakuten version 0.03
+WebService-Rakuten version 0.04
 ===============================
 
 This fills an empty niche for interfacing with the Rakuten
@@ -20,10 +20,12 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-Carp
-JSON
-LWP::UserAgent
-Unicode::Japanese
+    Carp
+    JSON
+    LWP::UserAgent
+    Readonly
+    Test::More
+    Unicode::Japanese
 
 COPYRIGHT AND LICENCE
 

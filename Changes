@@ -1,5 +1,8 @@
 Revision history for Perl extension WebService::Rakuten.
 
+0.04  Mon Aug 10 00:20:24 2009
+    - Updated dependency list
+
 0.03  Mon Aug 03 21:11:49 2009
     - Corrections and improvements to POD
 

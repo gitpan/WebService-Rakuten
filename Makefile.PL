@@ -9,6 +9,8 @@ WriteMakefile(
         'Carp'              => 0,
         'JSON'              => 0,
         'LWP::UserAgent'    => 0,
+        'Readonly'          => 0,
+        'Test::More'        => 0,
         'Unicode::Japanese' => 0,
     },
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
