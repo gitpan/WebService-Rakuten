@@ -1,4 +1,4 @@
-WebService-Rakuten version 0.04
+WebService-Rakuten version 0.05
 ===============================
 
 This fills an empty niche for interfacing with the Rakuten
@@ -15,6 +15,17 @@ To install this module type the following:
    make
    make test
    make install
+
+INSTALLING VIA CPAN TOOL
+
+Ordinarily you might:
+
+ cpan[1]> install WebService::Rakuten
+
+Due to multiple authors having permission on the namespace,
+you will instead need to do this:
+
+ cpan[1]> install DYLAN/WebService-Rakuten-0.05.tar.gz
 
 DEPENDENCIES
 

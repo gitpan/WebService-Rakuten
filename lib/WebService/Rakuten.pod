@@ -35,7 +35,6 @@ Use this module to conveniently interface with the Rakuten webservices.
 =head3 Example
 
 
-
  my $results_rh = $rws->simplehotelsearch(
      largeClassCode  => 'japan',
      middleClassCode => 'akita',
@@ -2974,7 +2973,9 @@ http://webservice.rakuten.co.jp/booksgenresearch/
 
 =item Namespace
 
-The namespace was registered by someone else, thus the "UNAUTHORIZED RELEASE" on the CPAN page.
+There are multiple authors with permission on this namespace. If you're installing via the cpan prompt, or command line tool, you'll need to do so like this:
+
+ cpan[1]> install DYLAN/WebService-Rakuten-0.05.tar.gz
 
 =item Auto-generated code
 
